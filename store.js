@@ -9,7 +9,7 @@ const initialState = {
  * @param {Object} action - The action to be applied to the state
  * @returns {Object} The new state of the store
  */
-const countReducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD':
             return { ...state, count: state.count + 1 };
@@ -61,11 +61,11 @@ const createStore = (reducer) => {
 };
 
 // Usage
-const store = createStore(countReducer);
+const store = createStore(reducer);
 
 // Subscribe to state changes
 store.subscribe(() => {
     console.log('Current state', store.getState());
-});
+})
 
-export default store;
+module.exports = store;
